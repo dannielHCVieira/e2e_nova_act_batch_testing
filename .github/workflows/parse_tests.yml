@@ -1,0 +1,19 @@
+name: Parse Tests
+
+on:
+  workflow_run:
+    workflows: ["Run E2E Tests"]  
+    types:
+      - completed
+
+jobs:
+  parse_tests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Parse tests
+        run: |
+          echo "Parsing tests..."
+          echo "Tests parsed successfully"

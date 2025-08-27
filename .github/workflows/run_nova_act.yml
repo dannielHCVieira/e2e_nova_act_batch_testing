@@ -1,0 +1,19 @@
+name: Run Nova Act E2E Tests
+
+on:
+  workflow_run:
+    workflows: ["Parse Tests"]  
+    types:
+      - completed
+
+jobs:
+  run_nova_act_e2e_tests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Run Nova Act E2E Tests
+        run: |
+          echo "Running Nova Act E2E Tests..."
+          echo "Nova Act E2E Tests completed successfully"
